@@ -12,7 +12,7 @@ import pygame
 
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
-newsapi = "019ea5f7c30d4b6f940b34016272e822"
+newsapi = "YOUR_API"
 
 # response = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={newsapi}")
 # print(response.status_code, response.json())
@@ -38,7 +38,7 @@ def speak(text):
     os.remove("temp.mp3")
 
 def aiProcess(command):
-    client = OpenAI(api_key='Osk-proj-vIPtNz0_zCBoP8_sjHFiFJQCS71J-IKCRIHhDKXtNGI0YHmrhKeGcGoQRhHrEOA4863kpwua_vT3BlbkFJ6zsRkrzuh1-QzOUbfqFHv9di6NfKKmHygEBAzSWg_dcKFM9xR_DTuU0iibRgoGGjpC5acyiVYA',
+    client = OpenAI(api_key='YOUR_API',
     )
     completion = client.chat.completions.create(
     model="gpt-4",
@@ -69,7 +69,7 @@ def processCommand(c):
         link = musicLibrary.music[song]
         webbrowser.open(link)
     elif "news" in c.lower():
-        r = requests.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=019ea5f7c30d4b6f940b34016272e822")
+        r = requests.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=YOUR_API")
         if r.status_code == 200:
             #Parse the Json response
             data = r.json()
